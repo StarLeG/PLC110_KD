@@ -1,0 +1,22 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM Alarm
+VAR
+	fbAlarms: ALARMS;
+END_VAR
+(* @END_DECLARATION := '0' *)
+	fbAlarms(outIsZoomer => A1_DO_Zoomer );
+
+	ERR_SET(1, A1_DI_EM_STOP); (* 1-ая Авария ---  Активирована кнопка аварийной остановки *)
+	ERR_SET(2, A1_DI_FIRE_ALARM); (* 2-ая Авария ---  Активирована ПОЖАРНАЯ ТРЕВОГА *)
+	ERR_SET(3, A1_DI_PDS1); (* 3-ая Авария ---  Нет сигнала от реле PSD1 "Загрязнен воздушный фильтр" *)
+	ERR_SET(4, A1_DI_PDS2); (* 4-ая Авария ---  Нет сигнала от реле PSD2 "Загрязнен воздушный фильтр" *)
+	ERR_SET(5, A1_DI_PDS3); (* 5-ая Авария ---  Нет сигнала от реле PSD3 "Загрязнен воздушный фильтр" *)
+	ERR_SET(6, A1_DI_LowPressureWater); (* 6-ая Авария ---  Низкое давление водопровода *)
+	ERR_SET(7, A1_DI_LowPressureSteam); (* 7-ая Авария ---  Низкое давление пара *)
+	ERR_SET(8, A1_DI_AlarmFun); (* 8-ая Авария ---  Авария ПЧВ U1 "Вентилятор" *)
+	ERR_SET(9, A1_DI_AlarmPump); (* 8-ая Авария ---  Авария ПЧВ U2 "Насос" *)
+END_PROGRAM

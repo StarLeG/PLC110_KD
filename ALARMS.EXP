@@ -1,0 +1,51 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Alarm' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK ALARMS
+VAR_INPUT
+	inReset: BOOL; (* Сброс зарегистрированых ошибок *)
+END_VAR
+VAR_OUTPUT
+	outLastAlarm: INT; (* Номер последней ошибки *)
+	outIsAlarm: BOOL; (* Есть ошибка для индикации *)
+	outIsZoomer: BOOL; (* Есть ошибка для зумера *)
+	outBlinker: BOOL; (* Мигает номер ошибки *)
+END_VAR
+VAR
+	inResetM: BOOL; (* Память для сброса для определения фронта *)
+	bCount: INT := 1; (* Счетчик для цикла*)
+END_VAR
+(* @END_DECLARATION := '0' *)
+	(* Если есть сигнал сброса, сбрасываем общую регистрацию аварии, а так же номер последней аварии *)
+
+	IF inReset AND NOT inResetM THEN
+		ERR_RESET_ALL(inReset);
+		outLastAlarm := 0;
+	END_IF;
+
+	inResetM := inReset;
+
+	outIsAlarm := outIsZoomer := FALSE;
+
+	(* Проверяем в цикле входящие ошибки *)
+
+	FOR bCount := 1 TO _ERR_Nums DO
+
+		(* Если есть авария, то назначаем состояние ощей аварии *)
+
+		IF glbErrors[bCount].State OR glbErrors[bCount].LatchState THEN
+			outIsAlarm := TRUE;
+			outLastAlarm := bCount;
+		END_IF;
+
+		(* Включить зуммер если авария зарегистрирована и зуммер разрешен *)
+
+		IF glbErrors[bCount].LatchState AND glbErrors[bCount].Zoomer THEN
+			outIsZoomer := TRUE;
+		END_IF;
+
+	END_FOR;
+
+END_FUNCTION_BLOCK

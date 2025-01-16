@@ -1,0 +1,14 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM WaterFlowMeter
+VAR
+	WaterFlowMetr : CTU;
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+A1_DI_FlowWater;
+WaterFlowMetr();
+END_PROGRAM

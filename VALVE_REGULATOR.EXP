@@ -1,0 +1,108 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/_БИБЛИОТЕКИ\/ОБОРУДОВАНИЕ\/ПРИВОДЫ' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK	VALVE_REGULATOR	(*	Регулятор положения привода	*)
+VAR_INPUT
+	SET_POINT		:	REAL	;(*	Необходимое положение привода 0..100%	*)
+	DEADBAND		:	WORD	:=	2	;(*	Зона нечувствительности, % (максимальная разница между заданным и расчётным значением) (по умолчанию 2)	*)
+	VALVE_T_S		:	WORD	:=	45	;(*	Полное время хода привода, с (по умолчанию 45)	*)
+	MIN_PAUSE		:	REAL	:=	1000	;(*	Минимальный период между импульсами, мс (по умолчанию 1000)	*)
+	MIN_IMPULSE		:	REAL	:=	1000	;(*	Минимальная длительность импульса, мс (по умолчанию 1000)	*)
+	FORCED_CLOSE	:	BOOL	;(*	Принудительное закрытие привода	*)
+	SYNC_TO_POS		:	BOOL	;(*	Синхронизация позиции привода со значением POS	*)
+	POS				:	REAL	;(*	Требуемая позиция привода при синхронизации	*)
+END_VAR
+VAR_OUTPUT
+	POS_R			:	REAL	;(*	Расчётная позиция привода REAL	*)
+	POS_W			:	WORD	;(*	Расчётная позиция привода WORD	*)
+	OPEN			:	BOOL	;(*	Сигнал на открытие	*)
+	CLOSE			:	BOOL	;(*	Сигнал на закрытие	*)
+END_VAR
+VAR
+	OP_PR			:	BOOL	;(*	Сигнал "Открыть" в предыдущем цикле	*)
+	CL_PR			:	BOOL	;(*	Сигнал "Закрыть" в предыдущем цикле	*)
+	ERROR			:	REAL	;(*	Ошибка	*)
+	CET				:	REAL	;(*	Прошедшее время	*)
+	POS_OLD			:	REAL	;(*	Позиция при предыдущем изменении	*)
+	POS_NEED		:	REAL	;(*	Необходимая позиция привода	*)
+	PROBE			:	REAL	;
+	I_TIM			:	TON	;(*	Таймер, отсчитывающий минимальное время импульса	*)
+	P_TIM			:	TOF	;(*	Таймер, отсчитывающий минимальную паузу между импульсами	*)
+	CLOCK			:	TON	;
+	LIM_TIM			:	TON	;(*	Таймер, отсчитывающий время ограничения подачи сигнала на открытие/закрытие при достижении приводом крайнего положения	*)
+END_VAR
+(*	2015.08.28	Корректировка комментариев	*)
+(*	2015.11.10	Изменена структура ФБ	*)
+(*	2016.09.15	Корректировка комментариев	*)
+(*	2016.12.12	Эмулятор привода включён в состав ФБ	*)
+(*	2017.05.03	Между резкими переключениями в противоположное положение теперь будет 1 цикл вызова	*)
+(* @END_DECLARATION := '0' *)
+IF	(SET_POINT = 0) OR FORCED_CLOSE	THEN	(*	Если резко закрываем	*)
+	OPEN	:= FALSE;
+	CLOSE	:= TRUE;
+ELSIF	SET_POINT = 100	THEN				(*	Если резко открываем	*)
+	OPEN	:= TRUE;
+	CLOSE	:= FALSE;
+ELSE										(*	Иначе - управление в рабочем диапазоне	*)
+	ERROR	:= ABS(POS_R - SET_POINT);
+
+	IF	NOT P_TIM.Q AND (ERROR > DEADBAND)	THEN	(*	Если уже отсчитали минимальную паузу между импульсами управления и ошибка выше зоны нечувствительности	*)
+		OPEN	:= POS_R < SET_POINT;
+		CLOSE	:= POS_R > SET_POINT;
+	END_IF
+
+	IF	I_TIM.Q AND ((OPEN AND (POS_R > SET_POINT)) OR (CLOSE AND (POS_R < SET_POINT)) OR (ERROR <= DEADBAND))	THEN	(*	Если уже отсчитали минимальную длительность импульса и пропали условия для управления	*)
+		OPEN	:= FALSE;
+		CLOSE	:= FALSE;
+	END_IF
+END_IF
+
+I_TIM(IN := OPEN OR CLOSE, PT := REAL_TO_TIME(MIN_IMPULSE));
+P_TIM(IN := OPEN OR CLOSE, PT := REAL_TO_TIME(MIN_PAUSE));
+POS_NEED	:= SEL(OPEN, SEL(CLOSE, POS_R, 0), 100);
+
+IF	(OP_PR <> OPEN) OR (CL_PR <> CLOSE)	THEN	(*	Если резко поменялось управление на противоположное	*)
+	LIM_TIM(IN := FALSE);							(*	сбрасываем таймер ограничения хода	*)
+END_IF
+
+OP_PR	:= OPEN;
+CL_PR	:= CLOSE;
+
+IF	(1200.0 * VALVE_T_S) <> TIME_TO_REAL(LIM_TIM.PT)	THEN	(*	Если поменялось время хода привода	*)
+	CLOCK(IN := FALSE);													(*	то сбрасываем таймер отсчёта положения и таймер ограничения хода	*)
+	LIM_TIM(IN := FALSE);
+END_IF
+
+LIM_TIM(IN := OPEN OR CLOSE, PT := REAL_TO_TIME(1200.0 * VALVE_T_S));
+OPEN	:= OPEN AND NOT LIM_TIM.Q;
+CLOSE	:= CLOSE AND NOT LIM_TIM.Q;
+
+IF	SYNC_TO_POS	THEN
+	CLOCK(IN := FALSE);
+	POS_R	:= POS;
+ELSE
+	CLOCK;
+	CET	:= TIME_TO_REAL(CLOCK.ET);	(*	прощедшее время	*)
+
+	IF	CET > 0	THEN				(*	если идёт отсчёт времени	*)
+		CLOCK(IN := FALSE);				(*	стартуем таймер заново	*)
+		CLOCK(IN := TRUE);
+		PROBE	:= (POS_NEED - POS_OLD) * 1000.0 * VALVE_T_S / CET;
+
+		IF	PROBE > 100	THEN			(*	к резкому увеличению	*)
+			POS_R	:= POS_OLD + 0.1 * CET / VALVE_T_S;
+		ELSIF	PROBE < -100	THEN	(*	к резкому уменьшению	*)
+			POS_R	:= POS_OLD - 0.1 * CET / VALVE_T_S;
+		ELSE							(*	изменение в доступных пределах	*)
+			POS_R	:= POS_NEED;
+		END_IF
+	ELSE							(*	если не идёт отсчёт времени	*)
+		CLOCK(IN := TRUE, PT := REAL_TO_TIME(1000.0 * VALVE_T_S));	(*	новый старт таймера	*)
+	END_IF
+END_IF
+
+POS_OLD	:= POS_R;
+POS_W	:= REAL_TO_WORD(POS_R);
+END_FUNCTION_BLOCK

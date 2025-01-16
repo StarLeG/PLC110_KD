@@ -1,0 +1,14 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Alarm' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION ERR_RESET : BOOL
+VAR_INPUT
+	Num: INT; (* Номер ошибки *)
+END_VAR
+VAR
+END_VAR
+(* @END_DECLARATION := '0' *)
+	glbErrors[Num].LatchState := glbErrors[Num].State := FALSE;
+END_FUNCTION

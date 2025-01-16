@@ -1,0 +1,23 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Alarm' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION ERR_SET : BOOL
+VAR_INPUT
+	Num: INT; (* Номер ошибки *)
+	Val: BOOL;(* Значение ошибки *)
+END_VAR
+VAR
+END_VAR
+(* @END_DECLARATION := '0' *)
+	glbErrors[Num].State := Val;
+
+	(* Если произошла ошибка и нужна регистрация, регистрируем ошибку *)
+
+	IF Val AND NOT glbErrors[Num].StateM AND glbErrors[Num].Latch THEN
+		glbErrors[Num].LatchState := TRUE;
+	END_IF;
+
+	glbErrors[Num].StateM := Val;
+END_FUNCTION

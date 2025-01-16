@@ -1,0 +1,19 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Alarm' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION ERR_RESET_ALL : BOOL
+VAR_INPUT
+	EN: BOOL; (* Сигнал на сброс *)
+END_VAR
+VAR
+	i: INT :=1;
+END_VAR
+(* @END_DECLARATION := '0' *)
+	IF EN THEN
+		FOR i := 1 TO _ERR_Nums DO
+			ERR_RESET(i);
+		END_FOR;
+	END_IF;
+END_FUNCTION

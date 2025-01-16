@@ -1,0 +1,49 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/DRIVE' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK DRIVE
+VAR_INPUT
+	inEnable: BOOL; (* Разрешение на работу *)
+	inTask: BOOL; (* Комманда на запуск *)
+	inReady: BOOL; (* Готовность *)
+	inBack: BOOL; (* Обратная связь включения *)
+	inReset: BOOL; (* Сброс аварии *)
+
+END_VAR
+VAR_OUTPUT
+	outDrive: BOOL; (*Запуск мотора*)
+	outError: BOOL; (* Команда на запуск есть , но мотор не работает *)
+END_VAR
+VAR
+	fbTON1: TON; (* Задержка для проверки обратной связи *)
+	fbTON2: TON; (* Задержка аварии *)
+END_VAR
+(* @END_DECLARATION := '0' *)
+	outDrive := FALSE;
+
+	IF inReset THEN
+		outError := FALSE;
+	END_IF;
+
+	IF NOT inEnable THEN
+		outError := FALSE;
+	ELSE
+		IF inTask AND NOT outError THEN
+			outDrive := inReady;
+
+			IF fbTON1.Q AND NOT inBack THEN
+				fbTON2(IN :=TRUE, PT := T#500ms);
+				IF fbTON2.Q THEN
+					fbTON2(IN := FALSE);
+					outError := TRUE;
+				END_IF;
+			END_IF;
+		ELSE
+			outDrive := FALSE;
+			fbTON2( IN := FALSE);
+		END_IF;
+		fbTON1(IN := outDrive, PT := T#500ms);
+	END_IF;
+END_FUNCTION_BLOCK

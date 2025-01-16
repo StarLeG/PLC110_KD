@@ -1,0 +1,15 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE _ERR :
+STRUCT
+	State:	       BOOL;
+	StateM:		 BOOL;
+	Msg:		 STRING[100];
+	Zoomer: 	 BOOL;
+	Latch:	       BOOL;
+	LatchState:   BOOL;
+	Lock:           BOOL;
+END_STRUCT
+END_TYPE
+(* @END_DECLARATION := '0' *)

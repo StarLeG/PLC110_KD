@@ -1,0 +1,20 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Alarm' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION ERR_BLOCK : BOOL
+VAR_INPUT
+END_VAR
+VAR
+	i: INT := 1;
+END_VAR
+(* @END_DECLARATION := '0' *)
+	ERR_BLOCK := FALSE;
+
+	FOR i := 1 TO _ERR_Nums DO
+		IF (glbErrors[i].LatchState OR glbErrors[i].State) AND glbErrors[i].Lock THEN
+			ERR_BLOCK := TRUE;
+		END_IF;
+	END_FOR;
+END_FUNCTION

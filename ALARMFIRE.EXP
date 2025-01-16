@@ -1,0 +1,103 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/_БИБЛИОТЕКИ\/Alarms' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK	AlarmFire	(*	ФБ фиксации аварии пожара	*)
+VAR_INPUT
+	TrackingOn	: BOOL;	(*	Условие отслеживания аварии (True - отслеживать, False - не отслеживать)	*)
+	Status			: BOOL;	(*	Статус сигнала	*)
+	TypeContact	: BOOL := FALSE;	(*	Тип контатка статуса (False - NC, True - NO)	*)
+	Delay			: REAL;	(*	Задержка срабатывания аварии, сек	*)
+	Reset			: BOOL;	(*	Сброс аварии	*)
+END_VAR
+VAR_OUTPUT
+	Alarm			: BOOL;	(*	Авария!	*)
+END_VAR
+VAR
+	DelayTon		: TON;	(*	Таймер задержки срабатывания аварии	*)
+END_VAR
+(* @END_DECLARATION := '0' *)
+_CFC_BODY
+_ELEMENT
+_ID: 8
+_MACROID: -1
+_POS: 22, 3
+_TYPE: _INPUT
+_TEXT: TrackingOn AND SEL(TypeContact, NOT Status, Status)
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 7
+_MACROID: -1
+_POS: 22, 4
+_TYPE: _INPUT
+_TEXT: REAL_TO_TIME(Delay * 1000)
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 6
+_MACROID: -1
+_POS: 23, 1
+_TYPE: _BOX
+_INSTANCE: 1
+_INSTANCENAME: DelayTon
+_TYPENAME: TON
+_ENENO: 0
+_INPUTS: 2
+_IN
+_INPUTID: 8
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_IN
+_INPUTID: 7
+_INPUTIDX: 0
+_NEGATE: 0
+_END
+_OUTPUTS: 2
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_OUT
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_PARAMETERS: 0
+_END
+_ELEMENT
+_ID: 3
+_MACROID: -1
+_POS: 30, 3
+_TYPE: _OUTPUT
+_TEXT: Alarm
+_INPUTID: 6
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _SET
+_END
+_ELEMENT
+_ID: 9
+_MACROID: -1
+_POS: 29, 6
+_TYPE: _INPUT
+_TEXT: NOT DelayTon.Q AND Reset
+_NEGATE: 0
+_CONNECTOR: 
+_END
+_ELEMENT
+_ID: 5
+_MACROID: -1
+_POS: 30, 6
+_TYPE: _OUTPUT
+_TEXT: Alarm
+_INPUTID: 9
+_INPUTIDX: 0
+_NEGATE: 0
+_SETRESET: _RESET
+_END
+
+END_FUNCTION_BLOCK

@@ -1,0 +1,67 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/_БИБЛИОТЕКИ\/РЕГУЛЯТОРЫ' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK	POWER_PID6	(*	ПИД-регулятор по мощности	*)
+VAR_INPUT
+	ENABLE		:	BOOL	;(*	Включить регулятор	*)
+	DISABLE_OUT	:	REAL	;(*	Значение выхода при отключенном ПИД	*)
+	SET_POINT	:	REAL	;(*	Уставка	*)
+	FEED		:	REAL	;(*	Обратная связь	*)
+	KP			:	INT	:=	300	;(*	Коэффициент пропорциональности (по умолчанию 300)	*)
+	KI			:	INT	:=	150	;(*	Коэффициент интегрирования (по умолчанию 150)	*)
+	KD			:	INT	:=	50	;(*	Коэффициент дифференцирования (по умолчанию 50)	*)
+	MAX_OUT		:	REAL	:=	100	;(*	Максимум выхода (по умолчанию 100)	*)
+	MIN_OUT		:	REAL	;(*	Минимум выхода	*)
+	CALL_PER	:	WORD	:=	5000	;(*	Минимальное время между вызовами ПИД, мс (по умолчанию 5000)	*)
+END_VAR
+VAR_OUTPUT
+ 	OUT			:	REAL	;(*	Выход регулятора	*)
+	MAX_LIMIT	:	BOOL	;(*	Достигнут максимум	*)
+	MIN_LIMIT	:	BOOL	;(*	Достигнут минимум	*)
+	KPP			:	REAL	;(*	Пропорциональная составляющая	*)
+	KII			:	REAL	;(*	Интегрирующая составляющая	*)
+	KDD			:	REAL	;(*	Дифференцирующая составляющая	*)
+	OUT_10		:	WORD	;(*	Выход регулятора * 10	*)
+END_VAR
+VAR
+	ET, ET_1	:	REAL	;
+	ET_2		:	REAL	;
+	C_TIM		:	TON	;
+END_VAR
+(*	2015.08.28	Корректировка комментариев	*)
+(*	2015.10.22	Минимальное время между вызовами ПИД по умолчанию теперь 5 с	*)
+(*	2015.11.09	Добавлено ограничение для входного значения	*)
+(*	2016.09.15	Корректировка комментариев, код оптимизирован	*)
+(* @END_DECLARATION := '0' *)
+IF	ENABLE	THEN
+	C_TIM(IN := TRUE, PT := REAL_TO_TIME(CALL_PER));
+
+	IF	C_TIM.Q	THEN
+		C_TIM(IN := FALSE);
+		ET_2	:= ET_1;
+		ET_1	:= ET;
+		ET	:= SET_POINT - LIMIT(-32768.0, FEED, 32767.0);
+		KPP	:= KP * (ET - ET_1);
+		KII	:= KI * ET;
+		KDD	:= KD * (ET - 2 * ET_1 + ET_2);
+		OUT	:= LIMIT(MIN_OUT, (OUT + (KPP + KII + KDD) / 1000.0), MAX_OUT);
+		MAX_LIMIT	:= (OUT = MAX_OUT);
+		MIN_LIMIT	:= (OUT = MIN_OUT);
+	END_IF
+ELSE 		(*	если выключен - сброс	*)
+	OUT	:= DISABLE_OUT;
+	ET	:= 0;
+	ET_1	:= 0;
+	ET_2	:= 0;
+	KPP	:= 0;
+	KII	:= 0;
+	KDD	:= 0;
+	MAX_LIMIT	:= (OUT >= MAX_OUT);
+	MIN_LIMIT	:= (OUT <= MIN_OUT);
+	C_TIM(IN := FALSE);
+END_IF
+
+OUT_10	:= REAL_TO_WORD(OUT * 10);
+END_FUNCTION_BLOCK
