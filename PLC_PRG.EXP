@@ -1,13 +1,34 @@
 
 (* @NESTEDCOMMENTS := 'Yes' *)
-(* @PATH := '' *)
+(* @PATH := '\/PRG' *)
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
 PROGRAM PLC_PRG
 VAR
+	KD2_xMainContactorLatch : BOOL; (* Переменная для самоподхвата главного контактора вент. устнавки №2 *)
 
 END_VAR
 (* @END_DECLARATION := '0' *)
-_CFC_BODY
+
+	DIO();
+	ModBus();
+	PLC_TO_HMI();
+	HMI_TO_PLC();
+	PLC_TO_SCADA();
+	Fun_KD2();
+	SteamValve_KD2();
+	Pump_KD2();
+
+
+
+	(*Включение отключения главнго контактора вентилиционной устоновки №2*)
+
+	KD2.xStateMainContactor := (KD2.xBtnMainContactor_ON  OR KD2_xMainContactorLatch)
+								AND NOT (KD2.xBtnMainContactor_OFF);
+
+	(* Обновление самоподхвата  главного контактора вент. установка №2*)
+	KD2_xMainContactorLatch := KD2.xStateMainContactor;
+
+
 
 END_PROGRAM

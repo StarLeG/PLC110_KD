@@ -4,14 +4,26 @@
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
 VAR_GLOBAL CONSTANT
-	_ERR_Nums: UINT := 5;
+	_ERR_Nums: UINT := 13;
+	_TableRow : UINT := 20;
 END_VAR
 
 VAR_GLOBAL
 	glbErrors: ARRAY [1.._ERR_Nums] OF _ERR :=
-		(Msg := 'Активирована кнопка Аварийной остановки', Lock := TRUE, Zoomer := TRUE),
+		(Msg := 'Активирована кнопка Аварийной остановки', Latch := FALSE, Lock := TRUE,  Zoomer := TRUE),
 		(Msg := 'Активирована Пожарная Тревога', Latch := TRUE, Lock := TRUE, Zoomer := TRUE ),
-		(Msg := 'Загрязнен возжушный фильтр', Zoomer := TRUE);
+		(Msg := 'Нет сигнала от реле PSD1 "Загрязнен воздушный фильтр КД 1',  Latch := FALSE, Lock := FALSE, Zoomer := TRUE),
+		(Msg := 'Нет сигнала от реле PSD2 "Авария вентилятора КД 1',  Latch := FALSE, Lock := FALSE, Zoomer := TRUE),
+		(Msg := 'Нет сигнала от реле PSD3 "Авария насоса КД 1',  Latch := FALSE, Lock := FALSE,  Zoomer := TRUE);
+
+	KD1 : _KD;
+	KD2 : _KD;
+
+
+
+	glbKD2_xButtonON_SYS :   BOOL;		(*Кнопка включить главный контактор визуализация Code Sys *)
+	glbKD2_xButtonOFF_SYS : BOOL;		(*Кнопка выключить главный контактор визуализация Code Sys*)
+
 
 
 
