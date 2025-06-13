@@ -1,0 +1,521 @@
+(* @PATH := '' *)
+
+VISUALISATION KD2_PumpSetting _VISU_TYPES : 1,1
+_BG_BMP : ''
+_TEXT : 21
+_PAINTZOOM : 100
+
+_BUTTON : ''
+_POS : 960,20,1101,81,1030,50
+_THRESH : '','','',''
+_INPUT : 262144
+_DSP : '','',''
+_ZOOM : 'KD2'
+_TEXT : 5,4294967284,700,0,0,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 20,20,481,361,250,190
+_COLORS : 8421376,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 5,4294967284,700,0,1,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 490,20,941,361,715,190
+_COLORS : 8421376,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 5,4294967284,700,0,2,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 500,70,711,101,605,85
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Верхний предел частоты: %s Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,3,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 500,110,711,141,605,125
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Нижний предел частоты: %s Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,4,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 500,150,711,181,605,165
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '.KD2_AccelerationTimeFan_HMI_r','Время разгона: %s Сек',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,5,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 500,190,711,221,605,205
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Время тормажения: %s Сек',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,6,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_BUTTON : ''
+_POS : 720,70,821,101,770,85
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : '','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,7,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_BUTTON : ''
+_POS : 720,110,821,141,770,125
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : '','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,8,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_BUTTON : ''
+_POS : 720,150,821,181,770,165
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : '','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,9,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_BUTTON : ''
+_POS : 720,190,821,221,770,205
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : '','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,10,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 40,30,471,61,255,45
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'PLC_TO_HMI.SYS_StateWordPump','Статус ПЧВ "Насос" :  %s',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,11,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 40,70,251,101,145,85
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Текущая частота V = %s Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,12,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 40,110,251,141,145,125
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Напряжение шины: DC %.1f Вольт',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,13,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 260,150,471,181,365,165
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Вых. ток I = %s Ампер',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,14,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 260,110,471,141,360,120
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Вых. напряжение U = %.1f Вольт',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,15,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 40,190,251,221,145,205
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Температура IGBT 1: %.1f °C',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,16,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 260,190,471,221,365,205
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Температура IGBT 2: %.1f °C',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,17,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 40,150,251,181,145,165
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Напряжение на входе: %.1f Вольт',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,18,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 260,70,441,101,365,85
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','Заданая частота V = %.1f Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,19,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_BUTTON : ''
+_POS : 440,70,471,101,455,75
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : '','Уст',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,20,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '0','100','Уставка "Вентилятор"'
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+_KEYINFOLIST : 0
+END_VISUALISATION

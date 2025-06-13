@@ -1,0 +1,38 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/_FC' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION SCALE : WORD
+VAR_INPUT
+	X : WORD; (* Входное значение *)
+	I_LO : WORD; (* Входное минимальное значение *)
+	I_HI : WORD; (* Входное максимальное значение *)
+	O_LO : WORD; (* Выходное минимальное значение *)
+	O_HI : WORD; (* Выходное максимальное значение *)
+END_VAR
+VAR
+	X_r : REAL; (* Входное значение *)
+	I_LO_r : REAL; (* Входное минимальное значение *)
+	I_HI_r : REAL; (* Входное максимальное значение *)
+	O_LO_r : REAL; (* Выходное минимальное значение *)
+	O_HI_r : REAL; (* Выходное максимальное значение *)
+	SCALE_r : REAL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+	X_r := WORD_TO_REAL(X);
+	I_LO_r := WORD_TO_REAL(I_LO);
+	I_HI_r := WORD_TO_REAL(I_HI);
+	O_LO_r := WORD_TO_REAL(O_LO);
+	O_HI_r := WORD_TO_REAL(O_HI);
+
+
+	IF I_LO = I_HI THEN
+		SCALE := O_LO;
+	ELSE
+		SCALE_r := (O_HI_r - O_LO_r) / (I_HI_r - I_LO_r) * (LIMIT(I_LO_r, X_r, I_HI_r) - I_LO_r) + O_LO_r;
+	END_IF;
+
+	SCALE := REAL_TO_WORD(SCALE_r);
+END_FUNCTION

@@ -1,0 +1,42 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM DIO
+VAR
+END_VAR
+(* @END_DECLARATION := '0' *)
+	(* ---------------- IN --------------- *)
+	KD2.xStateMainContactor_LED := A1_DI_MainContactor;
+	KD2.FAN.xIsWork:= A1_DI_isWorkFun;
+	KD2.PUMP.xIsWork := A1_DI_isWorkPump;
+
+
+
+	(* Дискретные аварии *)
+	KD2.xState_PDS1 := A1_DI_PDS1;
+	KD2.xState_PDS2 := A1_DI_PDS2;
+	KD2.State_PDS3 := A1_DI_PDS3;
+	KD2.LowPressureSteam := A1_DI_LowPressureSteam;
+	KD2.LowPresurreWater := A1_DI_LowPressureWater;
+	KD2.FAN.xAlarm := A1_DI_AlarmFun;
+	KD2.PUMP.xAlarm := A1_DI_AlarmPump;
+
+
+	KD2.FAN.xIsWork := A1_DI_isWorkFun;
+	KD2.PUMP.xIsWork:= A1_DI_isWorkPump;
+
+
+
+	(* ---------------- OUT --------------- *)
+(* Состояние главного контактора вентю установки 2 *)
+	A1_DO_MainContactor := KD2.xStateMainContactor;
+
+	(* Запуск Вентилятора вент. установка *)
+	A1_DO_RunFan := KD2.FAN.xCMD_RUN;
+
+	(* Запуск насоса увлажнения вент. установка 2 *)
+	A1_DO_RunPump := KD2.PUMP.xCMD_RUN;
+
+END_PROGRAM

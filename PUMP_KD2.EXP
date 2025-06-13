@@ -1,0 +1,21 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM Pump_KD2
+VAR
+	Pump : DRIVE;
+	CMD_PumpRunLatch : BOOL := FALSE;
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+	(* Если активирован ручной режим управления вентилятором КД2 *)
+	IF NOT KD2.PUMP.xMode_AUTO THEN
+		KD2.PUMP.xCMD_RUN := (KD2.PUMP.xBtnRun OR CMD_PumpRunLatch)
+									AND NOT (KD2.PUMP.xBtnStop);
+	END_IF;
+
+	CMD_PumpRunLatch := KD2.PUMP.xCMD_RUN;
+END_PROGRAM

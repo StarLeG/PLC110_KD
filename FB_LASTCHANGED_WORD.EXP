@@ -1,0 +1,37 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/_FB' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION_BLOCK FB_LastChanged_WORD
+VAR_INPUT
+	value1 : WORD;
+	value2 : WORD;
+END_VAR
+VAR_OUTPUT
+	out :WORD;
+END_VAR
+VAR
+	prevValue1 : WORD;
+	prevValue2 : WORD;
+	IsInitialized : BOOL := FALSE;
+END_VAR
+(* @END_DECLARATION := '0' *)
+	 IF NOT IsInitialized THEN
+		prevValue1 := value1;
+		prevValue2 := value2;
+		out := value1;
+		IsInitialized := TRUE;
+		RETURN;
+	END_IF;
+
+		IF (value1 <> prevValue1)  THEN
+			out := value1;
+			prevValue1 := value1;
+		ELSIF( value2 <> prevValue2) THEN
+			out := value2;
+			prevValue2 := value2;
+		END_IF;
+
+
+END_FUNCTION_BLOCK

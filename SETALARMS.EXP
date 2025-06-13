@@ -1,0 +1,32 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM SetAlarms
+VAR
+	fbAlarms: ALARMS;
+	LowLevelTank : BOOL;
+	AlarmSteamValve : BOOL;
+	AlarmLowLevelTank: BOOL;
+END_VAR
+(* @END_DECLARATION := '0' *)
+	fbAlarms(outIsZoomer => A1_DO_Zoomer );
+	(*AlarmLowLevelTank := (A2_AI_Alarm = 20);
+	AlarmSteamValve := (A2_AI_Alarm = 40);*)
+
+	ERR_SET(1, A1_DI_EM_STOP); (* 1-ая Авария ---  Активирована кнопка аварийной остановки *)
+	ERR_SET(2, A1_DI_FIRE_ALARM); (* 2-ая Авария ---  Активирована ПОЖАРНАЯ ТРЕВОГА *)
+	ERR_SET(3, A1_DI_PDS1); (* 3-ая Авария ---  Нет сигнала от реле PSD1 "Загрязнен воздушный фильтр КД 1" *)
+	ERR_SET(4, A1_DI_PDS2); (* 4-ая Авария ---  Нет сигнала от реле PSD2 "Авария вентилятора КД 1" *)
+	ERR_SET(5, A1_DI_PDS3); (* 5-ая Авария ---  Нет сигнала от реле PSD3 "Авария насос КД 1" *)
+	ERR_SET(6, A1_DI_LowPressureSteam); (* 7-ая Авария ---  Низкое давление пара *)
+	ERR_SET(7, A1_DI_LowPressureWater); (* 6-ая Авария ---  Низкое давление водопровода *)
+	ERR_SET(8, A1_DI_AlarmFun); (* 8-ая Авария ---  Авария ПЧВ U1 "Вентилятор КД 1" *)
+	ERR_SET(9, A1_DI_AlarmPump); (* 9-ая Авария ---  Авария ПЧВ U2 "Насос КД 1" *)
+	ERR_SET(10, A1_DI_OverFlowTank); (* 10-ая Авария ---  Аварийный максимальный уровень" *)
+	ERR_SET(11, AlarmLowLevelTank); (* 11-ая Авария ---  Аварийный минимальный уровень" *)
+	ERR_SET(12, AlarmSteamValve); (* 12-ая Авария ---  Аварийный минимальный уровень КД 1" *)
+	ERR_SET(13, A1_DI_RelayControlPhase); (* 13-ая Авария ---  Авария реле напряжения" *)
+
+END_PROGRAM

@@ -1,0 +1,78 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM ModBus
+VAR
+
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+	(* Дискретные сигналы *)
+
+
+
+	(* Аналоговые сигналы *)
+	KD2.SteamTemperature := A2_B1_SteamTemperature_KD2; (* Получает данный с датчика температуры B1 подачи пара КД 2, °C x 100 *)
+	KD2.Temperature_out := ST1_TemperatureOut_KD2; (* Получает данный с датчика ST 1 температуры на выходе КД 2, °C x 100 *)
+	KD2.Humidity_out := ST2_HumidityOut_KD2; (* Получает данный с датчика ST 1 влажность  на выходе КД 2, % x 100 *)
+	KD2.CondensateTemperature := A2_B2_CondensateTemperature_KD2; (* Получает данный с датчика температуры конденсата B2  КД 2, °C x 100 *)
+	KD2.Temperature_in := A2_B3_TemperatureIn_KD2; (* Получает данный с датчика B3  температуры на входе КД 2, °C x 100 *)
+	KD2.SteamPressure := A2_ST2_SteamPressure_KD2; (* Получаем давление пара *)
+	KD2.WaterPressure := A2_ST3_WaterPresure_KD2; (* Получаем значение давления водопроводной сети *)
+	KD2.LvlTank := A2_ST4_LvlTank_KD2; (* Уровень воды в баке системы увлажнения *)
+
+	(* ПЧВ "Вентилятор"  *)
+
+	KD2.FAN.iSetFrequency_r := U1_SetFrq; (* Получаем значение заданной частоты *)
+	A3_AO2_SetFrqFan_w := KD2.FAN.iSetFrequencyMAN_w; (* Передаем значение задоной частоты для ПЧВ "Вентилятор" *)
+
+	KD2.FAN.iOutputFrequency:= U1_OutputFrq_r; (* Получаем значение выходной частоты  *)
+	KD2.FAN.iOutputCurrent:= U1_CurrentOut_r; (* Получаем значение текучей величины тока  *)
+	KD2.FAN.iDC_BusVoltage:= U1_DC_BusVoltage_r; (* Получаем значение текучего напряженя шины DC  *)
+	KD2.FAN.iStatusWord := U1_StatusWord_r; (* Получаем текучее состояние ПЧВ "Вентилятор" *)
+	KD2.FAN.iTemeratureModule_1 := U1_TempetatureModule_1; (* Получаем значения температуры модуля IGBT 1  *)
+	KD2.FAN.iTemeratureModule_2 := U1_TempetatureModule_2; (* Получаем значения температуры модуля IGBT 2  *)
+	KD2.FAN.iVoltageIn := U1_VoltageIn; (* Получаем значение входного напряжения *)
+	KD2.FAN.iVoltageOut := U1_VoltageOut; (* Получаем значение выходного напряжения *)
+
+
+	KD2.FAN.iUpperFrqLimit_r := U1_UpperFrqLimit_r;	(* Получаем значение верхнего предела частоты  *)
+	U1_UpperFrqLimit_w := KD2.FAN.iUpperFrqLimit_w; (* Передаем значение верхнего предела частоты *)
+
+	KD2.FAN.iLowerFrqLimit_r := U1_LowerFrqLimit_r; (* Получаем значение нижнего предела частоты  *)
+	U1_LowerFrqLimit_w := KD2.FAN.iLowerFrqLimit_w;
+
+	KD2.FAN.iAccelerationTIME_r := U1_AcceletationTime_r; (* Получаем значения времени разгона *)
+	U1_AcceletationTime_w := KD2.FAN.iAccelerationTIME_w;
+
+	KD2.FAN.iBrakingTime_r  := U1_BrakingTime_r; (* Получаем значение времени тормажения *)
+	U1_BrakingTime_w := KD2.FAN.iBrakingTime_w;
+
+
+	(* Паравая задвижка Вент. установки 2 *)
+	KD2.SteamValve.iValvePos := A2_AI7_KD2_SteamValvePos; (* Получаем значение текучего местоположения парового клапана *)
+	A3_AO1_SetPosSteamValve := KD2.SteamValve.iSetPos; (* Передаем значения местоположения парового клапана *)
+
+	(* Насос увлажнения вент. установка *)
+	KD2.PUMP.iStatusWord := U2_StatusWord; (* Получаем слово состояние ПЧВ "Насос" *)
+	KD2.PUMP.iAccelerationTIME_r := U2_AccelerationTIME_r; (* Получаем значение величины разгона ПЧВ "Насос" *)
+	U2_AccelerationTIME_w := KD2.PUMP.iAccelerationTIME_w; (* Передаем значение  величины разгона ПЧВ "Насос" *)
+	KD2.PUMP.iBrakingTime_r := U2_BrakingTime_r; (* Получаем значение величины разгона ПЧВ "Насос" *)
+	U2_BrakingTime_w := KD2.PUMP.iBrakingTime_w; (* Передаем значение величины разгона ПЧВ "Насос" *)
+	KD2.PUMP.iDC_BusVoltage := U2_DC_BusVoltage; (* Получаем значение величины напряжения на шине DC *)
+	KD2.PUMP.iLowerFrqLimit_r := U2_LowerFrqLimit_r; (* Получаем значение нижнего предела ПЧВ "Насос" *)
+	U2_LowerFrqLimit_w := KD2.PUMP.iLowerFrqLimit_w; (* Передаем значение нижнего предела ПЧВ "Насос" *)
+	KD2.PUMP.iOutputCurrent := U2_OutputCurrent; (* Получаем значение выходного тока ПЧВ "Вентилятор" *)
+	KD2.PUMP.iOutputFrequency := U2_OutputFrequency; (* Получаем значение выходной частоты ПЧВ "Вентилятор" *)
+	KD2.PUMP.iSetFrequency_r := U2_SetFrequency; (*Получаем задоное значение частоты ПЧВ "Вентилятор"  *)
+	KD2.PUMP.iTemeratureModule_1 := U2_TemeratureModule_1;
+	KD2.PUMP.iTemeratureModule_2 := U2_TemeratureModule_2;
+	KD2.PUMP.iUpperFrqLimit_r := U2_UpperFrqLimit_r;
+	U2_UpperFrqLimit_w := KD2.PUMP.iUpperFrqLimit_w;
+
+
+
+
+END_PROGRAM

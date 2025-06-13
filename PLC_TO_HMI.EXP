@@ -1,0 +1,77 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM PLC_TO_HMI
+VAR
+	SYS_iTemperatureOUT : INT;
+	(* Для визуализации в CodeSys *)
+	(* ------------------------------------------------------------------------------------------- *)
+	SYS_StateWordFan : STRING;
+	SYS_VoltageInFan : REAL;
+	SYS_VoltageOutFan : REAL;
+	SYS_SetFrqFan_r : REAL;
+	(* ------------------------------------------------------------------------------------------- *)
+	SYS_SteamValvePos : REAL;
+	(* ------------------------------------------------------------------------------------------- *)
+	SYS_IsRunPump_KD2 : BOOL := FALSE;
+	SYS_StateWordPump : STRING;
+END_VAR
+(* @END_DECLARATION := '0' *)
+	(* ************************************************************************************************************************************************** *)
+	(* HMI СП-307Б *)
+	KD2_MainContactorState_HMI := KD2.xStateMainContactor_LED; 			(* Состояние главного контактора вент. установки  ВКЛ / ВЫКЛ *)
+
+
+	(* Аналоговые сигналы *)
+	KD2_TemperatureIn_HMI := KD2.Temperature_in;							 (* Температура на входе вентиляционной установки 2 *)
+	KD2_TemperatureOut_HMI := KD2.Temperature_out;						 (* Температура на выходе вентиляционной установки 2 *)
+	KD2_Humidity_HMI := KD2.Humidity_out;									 (* Влажность на выходе вентиляционной установки 2 *)
+	KD2_SteamTemperature_HMI := KD2.SteamTemperature;					 (* Температура подачи пара на  вентиляционную установку 2 *)
+	KD2_CondensateTemperature_HMI := KD2.CondensateTemperature;	 (* Температура конденсата  вентиляционная установка 2 *)
+	KD2_SteamPressure_HMI := KD2.SteamPressure;							 (* Давление пара *)
+	KD2_WaterPressure_HMI := KD2.WaterPressure;							 (* Давление водопроводной сети *)
+
+	(* Дискретные аварии и предупреждения *)
+
+	KD2_PDS1_HMI := KD2.xState_PDS1 ; 										  (* Состояние датчика PDS1 "Фильтр" *)
+	KD2_PDS2_HMI := KD2.xState_PDS2;                                                                   (* Состояние датчика PDS2 "Насос увлажнения" *)
+	KD2_PDS3_HMI := KD2.State_PDS3;                                                                   (* Состояние датчика PDS3 "Вентилятор" *)
+
+	(* Вентилятор КД 2 *)
+	KD2_FanIsRun_HMI := KD2.FAN.xIsWork;
+	KD2_SetFrqFan_HMI_r := KD2.FAN.iSetFrequency_r; (* Отображение значения заданой частоты *)
+	KD2_OutFrqFan_HMI := KD2.FAN.iOutputFrequency; (* Отображение значения выходной частоты *)
+	KD2_OutCurrentFan_HMI := KD2.FAN.iOutputCurrent; (* Отображение значения выходного тока *)
+	KD2_DC_BusVoltageFan_HMI := KD2.FAN.iDC_BusVoltage; (* Отображение значения напряжения  на шине DC *)
+	KD2_StatusWordFan_HMI := KD2.FAN.iStatusWord; (* Информация о стостоянии ПЧВ *)
+	KD2_TemerarureModule1Fan_HMI := KD2.FAN.iTemeratureModule_1; (* Информация о температуре модуля 1 ПЧВ *)
+	KD2_Fan_TemerarureModule2Fan_HMI := KD2.FAN.iTemeratureModule_2; (* Информация о температуре модуля 2 ПЧВ *)
+
+	KD2_UpperFrqLimitFan_HMI_r := KD2.FAN.iUpperFrqLimit_r; (* Отображение Верхнего предела частоты *)
+
+	KD2_LowFrqLimitFan_HMI_r := KD2.FAN.iLowerFrqLimit_r;
+	KD2_AccelerationTimeFan_HMI_r := KD2.FAN.iAccelerationTIME_r;
+	KD2_BrakingTimeFan_HMI_r := KD2.FAN.iBrakingTime_r;
+
+	KD2_VoltageInFan_HMI := KD2.FAN.iVoltageIn; (* Отображает значение вхнодного напряжения *)
+	SYS_VoltageOutFan:= KD2.FAN.iVoltageOut / 10.;
+	(* Видимость кнопок ручного управления Насосом и Вентилятором *)
+	KD2_VisibilityFan_HMI := KD2.FAN.xMode_AUTO;
+
+	(* Для визуализации *)
+	(* ------------------------------------------------------------------------------------------- *)
+	SYS_StateWordFan := codeToText(KD2.FAN.iStatusWord);
+	SYS_VoltageInFan := WORD_TO_REAL(KD2.FAN.iVoltageIn) / 10;
+	SYS_SetFrqFan_r :=  WORD_TO_REAL(KD2.FAN.iSetFrequency_r) / 100;
+	(* ------------------------------------------------------------------------------------------- *)
+	SYS_SteamValvePos := KD2.SteamValve.iValvePos / 100.;
+	(* ------------------------------------------------------------------------------------------- *)
+	SYS_IsRunPump_KD2 := KD2_IsRunPump_HMI := KD2.PUMP.xIsWork;
+	SYS_StateWordPump := codeToText(KD2.PUMP.iStatusWord);
+
+
+
+	(* ------------------------------------------------------------------------------------------- *)
+END_PROGRAM

@@ -1,0 +1,23 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/_FC' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION codeToText : STRING
+VAR_INPUT
+	input : WORD;
+END_VAR
+VAR
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+	CASE input OF
+		0 : codeToText := 'Не готов';
+		128 : codeToText := 'Готов';
+		129 : codeToText := 'В работе';
+		131 : codeToText := 'Разгон';
+		133 : codeToText := 'Тормажение';
+	ELSE
+		RETURN;
+	END_CASE;
+END_FUNCTION

@@ -1,0 +1,11 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE _VALVE :
+STRUCT
+	xMode_AUTO : BOOL := FALSE; (* јктивати€ автоматического режима управлени€ *)
+	iValvePos : WORD; (* “екущее положение паравого клапана *)
+	iSetPos : WORD; (* «аданное значение местоположени€ парового клапана *)
+END_STRUCT
+END_TYPE
+(* @END_DECLARATION := '0' *)

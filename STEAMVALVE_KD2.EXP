@@ -1,0 +1,14 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM SteamValve_KD2
+VAR
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+	IF NOT KD2.SteamValve.xMode_AUTO THEN
+		;
+	END_IF;
+END_PROGRAM

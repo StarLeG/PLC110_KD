@@ -1,0 +1,136 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM HMI_TO_PLC
+VAR
+	KD2_xModeFan_AUTO_Latch : BOOL := FALSE;
+	KD2_xModePump_AUTO_Latch : BOOL := FALSE;
+
+
+	(* Переменные для визуализации *)
+	(* Вентилятор *)
+	SYS_UpperLimitFrq_Fan : WORD := 5000;
+	SYS_LowerLimitFrq_Fan : WORD := 0;
+	SYS_AccelerationTime_Fan : WORD := 60;
+	SYS_BrakingTime_Fan : WORD := 60;
+	SYS_SetFrq_Fan : WORD;
+
+	(* Насос увлаженения *)
+	SYS_xModePump_AUTO : BOOL := FALSE;
+	SYS_xModePump_MAN : BOOL := FALSE;
+	SYS_xRunBtnPump : BOOL := FALSE;
+	SYS_xStopBtnPump : BOOL := FALSE;
+	SYS_UpperLimitFrq_Pump : WORD := 5000;
+	SYS_LowerLimitFrq_Pump : WORD := 0;
+	SYS_AccelerationTime_Pump : WORD := 5;
+	SYS_BrakingTime_Pump : WORD := 5;
+	SYS_SetFrq_Pump : WORD;
+
+
+
+	(* Паравой клапан *)
+	SYS_SetSteamValvePos : REAL;
+
+
+
+
+	KD2_UpperFrqLimit_Fan :FB_LastChanged_WORD;
+	KD2_LowerFrqLimit_Fan :FB_LastChanged_WORD;
+	KD2_AccelerationTIME_Fan :FB_LastChanged_WORD;
+	KD2_BrakingTime_Fan :FB_LastChanged_WORD;
+
+	KD2_UpperFrqLimit_Pump :FB_LastChanged_WORD;
+	KD2_LowerFrqLimit_Pump :FB_LastChanged_WORD;
+	KD2_AccelerationTIME_Pump :FB_LastChanged_WORD;
+	KD2_BrakingTime_Pump :FB_LastChanged_WORD;
+
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+	(* HMI СП-307Б *)
+(* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*)
+	(* Главный контактор *)
+	KD2.xBtnMainContactor_ON := KD2_MainContactor_ON_HMI;
+	KD2.xBtnMainContactor_OFF := KD2_MainContactor_OFF_HMI;
+(* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*)
+	(* Выбор режима работы Вентилярора АВТО / РУЧН *)
+	KD2.FAN.xMode_AUTO := (KD2_FanMode_AUTO_HMI OR KD2_xModeFan_AUTO_Latch)
+								AND NOT (KD2_FanMode_MAN_HMI);
+
+	KD2_xModeFan_AUTO_Latch := KD2.FAN.XMode_AUTO;
+
+
+
+	(* Звпуск / Остановка Вентилятора   *)
+	KD2.FAN.xBtnRun := KD2_StartFan_HMI;
+	KD2.FAN.xBtnStop := KD2_StopFan_HMI;
+
+
+	(* Значение предела верхней частоты *)
+	KD2_UpperFrqLimit_Fan(value1 := SYS_UpperLimitFrq_Fan, value2 := KD2_UpperFrqLimitFan_HMI_w);
+	KD2.FAN.iUpperFrqLimit_w := KD2_UpperFrqLimit_Fan.out;
+
+	(* Знаяение нижненего предела частоты *)
+	KD2_LowerFrqLimit_Fan(value1 := SYS_LowerLimitFrq_Fan, value2 := KD2_LowFrqLimitFan_HMI_w);
+	KD2.FAN.iLowerFrqLimit_w := KD2_LowerFrqLimit_Fan.out;
+
+	(* Время разгона *)
+	KD2_AccelerationTIME_Fan(value1 := SYS_AccelerationTime_Fan, value2 := KD2_AccelerationTimeFan_HMI_w);
+	KD2.FAN.iAccelerationTIME_w:= KD2_AccelerationTIME_Fan.out;
+
+	(* Время тормажения *)
+	KD2_BrakingTime_Fan(value1 := SYS_BrakingTime_Fan, value2 := KD2_BrakingTimeFan_HMI_w);
+	KD2.FAN.iBrakingTime_w := KD2_BrakingTime_Fan.out  ;
+
+	(* Заданное значение частоты в ручном режиме *)
+	KD2.FAN.iSetFrequencyMAN_w := SCALE(SYS_SetFrq_Fan, 0, 100, 0, 1000);
+(* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*)
+	(* Паровая задвижка вент. установка 2 *)
+	KD2.SteamValve.iSetPos := SCALE(REAL_TO_WORD(SYS_SetSteamValvePos), 0, 100, 0, 1000);
+
+(* --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*)
+	(* Выбор режима работы Насоса увлажнени АВТО / РУЧН *)
+	KD2.PUMP.xMode_AUTO := (SYS_xModePump_AUTO OR KD2_PumpMode_AUTO_HMI OR KD2_xModePump_AUTO_Latch)
+									AND NOT (SYS_xModePump_MAN OR KD2_PumpMode_MAN_HMI);
+	KD2_xModePump_AUTO_Latch := KD2.PUMP.xMode_AUTO;
+	(* Запуск остановка насоса увлажненияв РУЧНОМ режиме *)
+	KD2.PUMP.xBtnRun := SYS_xRunBtnPump OR KD2_StartPump_HMI;
+	KD2.PUMP.xBtnStop := SYS_xStopBtnPump OR KD2_StopPump_HMI;
+
+	(* Установка вверхнего и нижнего предела частоты ПЧВ "Насос" *)
+	KD2_UpperFrqLimit_Pump(value1 := SYS_UpperLimitFrq_Pump, value2 := KD2_UpperLimitFrq_Pump_HMI_w);
+	KD2.PUMP.iUpperFrqLimit_w := KD2_UpperFrqLimit_Pump.out;
+
+	KD2_LowerFrqLimit_Pump(value1 := SYS_LowerLimitFrq_Pump, value2 := KD2_LowerLimitFrq_Pump_HMI_w);
+	KD2.PUMP.iLowerFrqLimit_w := KD2_LowerFrqLimit_Pump.out;
+
+
+	(* Установка времени разгона и время тормажения ПЧВ "Насос" КД 2 *)
+	KD2_AccelerationTIME_Pump(value1 := SYS_AccelerationTime_Pump, value2 := KD2_AccelerationTime_Pump_HMI_w);
+	KD2.PUMP.iAccelerationTIME_w := KD2_AccelerationTIME_Pump.out;
+
+	KD2_BrakingTime_Pump(value1 := SYS_BrakingTime_Pump, value2 := KD2_BrakingTime_Pump_HMI_w);
+	KD2.PUMP.iBrakingTime_w := KD2_BrakingTime_Pump.out;
+
+		(* Заданное значение частоты в ручном режиме *)
+	KD2.PUMP.iSetFrequencyMAN_w := SCALE(SYS_SetFrq_Pump, 0, 100, 0, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+END_PROGRAM

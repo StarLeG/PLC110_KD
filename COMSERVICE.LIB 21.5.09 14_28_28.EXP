@@ -1,8 +1,6 @@
 LIBRARY
 ComService.lib 21.5.09 14:28:28
 (* @LIBRARYSYMFILEINFO := '0' *)
-NumOfPOUs: 1
-COM_SERVICE: 2048
-NumOfGVLs: 1
-Global_Variables: 2048
+NumOfPOUs: 0
+NumOfGVLs: 0
 END_LIBRARY

@@ -1,0 +1,546 @@
+(* @PATH := '' *)
+
+VISUALISATION KD2_FanSetting _VISU_TYPES : 1,1
+_BG_BMP : ''
+_TEXT : 32
+_PAINTZOOM : 100
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 10,10,471,351,240,180
+_COLORS : 8421376,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 5,4294967284,700,0,0,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 470,10,921,351,695,180
+_COLORS : 8421376,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '','',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 5,4294967284,700,0,21,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 30,20,461,51,245,35
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'PLC_TO_HMI.SYS_StateWordFan','Статус ПЧВ "Вентилятор" :  %s',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,1,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 30,60,241,91,135,75
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'WORD_TO_REAL(.KD2_OutFrqFan_HMI) / 100','Текущая частота V = %s Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,2,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 30,100,241,131,135,115
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'WORD_TO_REAL(.KD2_DC_BusVoltageFan_HMI) / 10.0','Напряжение шины: DC %.1f Вольт',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,3,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 250,140,461,171,355,155
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'WORD_TO_REAL(.KD2_OutCurrentFan_HMI) / 10','Вых. ток I = %s Ампер',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,4,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 250,100,461,131,350,110
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'PLC_TO_HMI.SYS_VoltageOutFan','Вых. напряжение U = %.1f Вольт',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,5,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 490,60,701,91,595,75
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '.KD2_UpperFrqLimitFan_HMI_r','Верхний предел частоты: %s Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,9,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 490,100,701,131,595,115
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '.KD2_LowFrqLimitFan_HMI_r','Нижний предел частоты: %s Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,10,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 490,140,701,171,595,155
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '.KD2_AccelerationTimeFan_HMI_r','Время разгона: %s Сек',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,11,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 490,180,701,211,595,195
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : '.KD2_BrakingTimeFan_HMI_r','Время тормажения: %s Сек',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,12,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 490,20,921,51,710,35
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'WORD_TO_INT(.KD2_StatusWordFan_HMI)','Статус ПЧВ "Вентилятор" :  %<statusWord>',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,17,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_BUTTON : ''
+_POS : 710,60,811,91,760,75
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : 'HMI_TO_PLC.SYS_UpperLimitFrq_Fan','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,22,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_BUTTON : ''
+_POS : 710,100,811,131,760,115
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : 'HMI_TO_PLC.SYS_LowerLimitFrq_Fan','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,23,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_BUTTON : ''
+_POS : 710,140,811,171,760,155
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : 'HMI_TO_PLC.SYS_AccelerationTime_Fan','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,24,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_BUTTON : ''
+_POS : 710,180,811,211,760,195
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : 'HMI_TO_PLC.SYS_BrakingTime_Fan','Установить',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,25,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 30,180,241,211,135,195
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'WORD_TO_REAL(.KD2_TemerarureModule1Fan_HMI) / 10.0','Температура IGBT 1: %.1f °C',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,6,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 250,180,461,211,355,195
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'WORD_TO_REAL(.KD2_Fan_TemerarureModule2Fan_HMI) / 10.0','Температура IGBT 2: %.1f °C',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,7,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 30,140,241,171,135,155
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'PLC_TO_HMI.SYS_VoltageInFan','Напряжение на входе: %.1f Вольт',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,26,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_SIMPLE : 0
+_LINEWIDTH : 0
+_NOCOLORS : 1,1
+_POS : 250,60,431,91,355,75
+_COLORS : 16777215,0,16777215,0,0
+_VARIABLES : '','','','','','','',''
+_THRESH : '','','',''
+_DSP : 'PLC_TO_HMI.SYS_SetFrqFan_r','Заданая частота V = %.1f Герц',''
+_ZOOM : ''
+_INPUT : 0
+_TEXT : 4,4294967284,700,0,27,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @EXTENDEDSIMPLESHAPE := '_SIMPLE: 0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+
+_BUTTON : ''
+_POS : 950,10,1091,71,1020,40
+_THRESH : '','','',''
+_INPUT : 262144
+_DSP : '','',''
+_ZOOM : 'KD2'
+_TEXT : 5,4294967284,700,0,28,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,0,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '','',''
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+
+_BUTTON : ''
+_POS : 430,60,461,91,445,65
+_THRESH : '','','',''
+_INPUT : 1048576
+_DSP : 'HMI_TO_PLC.SYS_SetFrq_Fan','Уст',''
+_ZOOM : ''
+_TEXT : 5,4294967284,700,0,31,0,0,204
+_FONT : ''
+_EXEC : ''
+_TEXTVARIABLES : '','','','',''
+_COLORVARIABLES : '','','','','',''
+_ACCESSLEVELS : 2,2,2,2,2,2,2,2
+_OBJECT : 0,1,157
+_THRESH2 : '','','',''
+_INPUTTYPE : '0','100','Уставка "Вентилятор"'
+_HIDDENINPUT : 0
+_END_ELEM
+(* @BUTTONCOLORS := '_COLORS : 13158600,0,14474460,0,0' *)
+(* @TEXTSCALINGVARS := '_TEXTSCALINGVARS: $'$',$'$'' *)
+(* @GRADIENT_AND_FRAME := '_GRADIENT_AND_FRAME: 0,0,0' *)
+(* @INPUTTAPFALSE := '_INPUTTAPFALSE: 0' *)
+(* @NO_FRAME_AROUND_BITMAP := '_NO_FRAME_AROUND_BITMAP: 0' *)
+_KEYINFOLIST : 0
+END_VISUALISATION

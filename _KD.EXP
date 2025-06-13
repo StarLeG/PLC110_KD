@@ -1,0 +1,36 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE _KD :
+STRUCT
+	FAN : _DRIVE;
+	PUMP : _DRIVE;
+	SteamValve : _VALVE;
+
+	xBtnMainContactor_ON : BOOL ;
+	xBtnMainContactor_OFF  : BOOL;
+	xStateMainContactor : BOOL := FALSE; (* Состояние главного контактора установка ВКЛ / ВЫКЛ *)
+	xStateMainContactor_LED : BOOL := FALSE; (* Состояние главного контактора установка ВКЛ / ВЫКЛ *)
+
+	xState_PDS1 : BOOL := FALSE;
+	xState_PDS2 : BOOL := FALSE;
+	State_PDS3 : BOOL := FALSE;
+	LowPressureSteam : BOOL := FALSE;
+	LowPresurreWater : BOOL := FALSE;
+
+
+
+
+
+	Temperature_out : WORD := 0; (* Температура на выходе установки *)
+	Humidity_out : WORD := 0;		(* Влажность на выходе установки *)
+	Temperature_in: WORD := 0;	(* Температура на входе установки *)
+	SteamTemperature : WORD := 0; (* Температура подачи пара на установку *)
+	CondensateTemperature : WORD := 0; (*Температура конденсата*)
+	SteamPressure : WORD := 0; (* Давление пара  *)
+	WaterPressure : WORD := 0;  (* Давление в водопровода *)
+	LvlTank :WORD := 0; (*Уровень воды в баке системы увлажнения*)
+
+END_STRUCT
+END_TYPE
+(* @END_DECLARATION := '0' *)

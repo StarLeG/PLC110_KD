@@ -1,0 +1,22 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/PRG' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+PROGRAM Fun_KD2
+VAR
+	Fun : DRIVE;
+	CMD_FanRunLatch : BOOL := FALSE;
+
+
+END_VAR
+(* @END_DECLARATION := '0' *)
+
+	(* Если активирован ручной режим управления вентилятором КД2 *)
+	IF NOT KD2.FAN.xMode_AUTO THEN
+		KD2.FAN.xCMD_RUN := (KD2.FAN.xBtnRun OR CMD_FanRunLatch )
+									AND NOT (KD2.FAN.xBtnStop);
+	END_IF;
+
+	CMD_FanRunLatch := KD2.FAN.xCMD_RUN;
+END_PROGRAM

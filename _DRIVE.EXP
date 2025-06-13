@@ -1,0 +1,45 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE _DRIVE :
+STRUCT
+	xAlarm : BOOL := FALSE; (* Авария ПЧВ *)
+	xIsWork : BOOL := FALSE;  (* ПЧВ в работе *)
+	xMode_AUTO : BOOL := FALSE; (* Активирован Автоматический  режим запуска ПЧВ *)
+	xCMD_RUN : BOOL := FALSE; (* Команда для запуска ПЧВ *)
+	xBtnRun : BOOL := FALSE;
+	xBtnStop : BOOL := FALSE;
+
+
+
+	iSetFrequency_r : WORD := 0; 			  (* Отображает значение задаваемой частоты преобразователя *)
+	iSetFrequencyAUTO_w : WORD := 0;	  (* Передоваемое значение задаваемой частоты в АВТО режиме *)
+	iSetFrequencyMAN_w : WORD := 0;	        (* Передоваемое значение задаваемой частоты в РУЧНОМ режиме *)
+
+	iUpperFrqLimit_r : WORD;                             (* Отображение значения  Верхнего предела частоты *)
+	iUpperFrqLimit_w : WORD;                            (* Передоваемое значение  Верхнего предела частоты *)
+
+	iLowerFrqLimit_r : WORD;                             (* Отображает значение Нижнего  предела частоты *)
+	iLowerFrqLimit_w : WORD := 0;			    (* Передоваемое значение Нижнего предела частоты *)
+
+	iAccelerationTIME_r : WORD;                          (* Отображает значение Времени разгона *)
+	iAccelerationTIME_w : WORD := 60;              (* Передоваемое значени  Времени разгона *)
+
+	iBrakingTime_r : WORD;                                  (* Отображаемое значение Времени тормажения *)
+	iBrakingTime_w : WORD :=60;                        (* Передоваемое значение Времени тормажения *)
+
+	iOutputFrequency : WORD := 0; 		           (* Отображает значение выходной частоты преобразователя *)
+	iOutputCurrent : WORD := 0;                           (* Отображает значение выходного тока преобразователя *)
+	iOutputPower : WORD := 0;                             (* Отображает текущение значение выходной мощности преобразователя *)
+	iDC_BusVoltage : WORD := 0;                        (* Отображает текущее значение напряжения на звене постоянного тока *)
+	iVoltageIn : WORD;								(* Отображает текущее значение напряжения на входе *)
+	iVoltageOut : WORD;								(* Отображает текущее значение напряжения на выходе *)
+	iStatusWord : WORD := 0;                                (* Информация о стостоянии ПЧВ *)
+	iTemeratureModule_1 : WORD := 0;               (* Температура IGBT модуля 1 *)
+	iTemeratureModule_2 : WORD := 0;               (* Температура IGBT модуля 2 *)
+
+
+
+END_STRUCT
+END_TYPE
+(* @END_DECLARATION := '0' *)
