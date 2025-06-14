@@ -71,8 +71,4 @@ END_VAR
 	KD2.PUMP.iTemeratureModule_2 := U2_TemeratureModule_2;
 	KD2.PUMP.iUpperFrqLimit_r := U2_UpperFrqLimit_r;
 	U2_UpperFrqLimit_w := KD2.PUMP.iUpperFrqLimit_w;
-
-
-
-
 END_PROGRAM

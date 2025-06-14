@@ -11,8 +11,8 @@ VAR
 	AlarmLowLevelTank: BOOL;
 END_VAR
 (* @END_DECLARATION := '0' *)
-	fbAlarms(outIsZoomer => A1_DO_Zoomer );
-	(*AlarmLowLevelTank := (A2_AI_Alarm = 20);
+	(*fbAlarms(outIsZoomer => A1_DO_Zoomer );
+	AlarmLowLevelTank := (A2_AI_Alarm = 20);
 	AlarmSteamValve := (A2_AI_Alarm = 40);*)
 
 	ERR_SET(1, A1_DI_EM_STOP); (* 1-ая Авария ---  Активирована кнопка аварийной остановки *)
@@ -28,5 +28,4 @@ END_VAR
 	ERR_SET(11, AlarmLowLevelTank); (* 11-ая Авария ---  Аварийный минимальный уровень" *)
 	ERR_SET(12, AlarmSteamValve); (* 12-ая Авария ---  Аварийный минимальный уровень КД 1" *)
 	ERR_SET(13, A1_DI_RelayControlPhase); (* 13-ая Авария ---  Авария реле напряжения" *)
-
 END_PROGRAM

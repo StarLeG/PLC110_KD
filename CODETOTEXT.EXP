@@ -10,7 +10,6 @@ END_VAR
 VAR
 END_VAR
 (* @END_DECLARATION := '0' *)
-
 	CASE input OF
 		0 : codeToText := 'Не готов';
 		128 : codeToText := 'Готов';

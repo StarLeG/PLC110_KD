@@ -11,7 +11,6 @@ VAR
 
 END_VAR
 (* @END_DECLARATION := '0' *)
-
 	(* Если активирован ручной режим управления вентилятором КД2 *)
 	IF NOT KD2.FAN.xMode_AUTO THEN
 		KD2.FAN.xCMD_RUN := (KD2.FAN.xBtnRun OR CMD_FanRunLatch )

@@ -1,6 +1,6 @@
 
 (* @NESTEDCOMMENTS := 'Yes' *)
-(* @PATH := '\/PRG' *)
+(* @PATH := '' *)
 (* @OBJECTFLAGS := '0, 8' *)
 (* @SYMFILEFLAGS := '2048' *)
 PROGRAM PLC_PRG
@@ -9,7 +9,6 @@ VAR
 
 END_VAR
 (* @END_DECLARATION := '0' *)
-
 	DIO();
 	ModBus();
 	PLC_TO_HMI();
@@ -28,7 +27,4 @@ END_VAR
 
 	(* Обновление самоподхвата  главного контактора вент. установка №2*)
 	KD2_xMainContactorLatch := KD2.xStateMainContactor;
-
-
-
 END_PROGRAM

@@ -10,7 +10,6 @@ VAR
 
 END_VAR
 (* @END_DECLARATION := '0' *)
-
 	(* Если активирован ручной режим управления вентилятором КД2 *)
 	IF NOT KD2.PUMP.xMode_AUTO THEN
 		KD2.PUMP.xCMD_RUN := (KD2.PUMP.xBtnRun OR CMD_PumpRunLatch)
