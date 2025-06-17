@@ -20,6 +20,7 @@ VAR
 	SCALE_r : REAL;
 END_VAR
 (* @END_DECLARATION := '0' *)
+
 	X_r := WORD_TO_REAL(X);
 	I_LO_r := WORD_TO_REAL(I_LO);
 	I_HI_r := WORD_TO_REAL(I_HI);

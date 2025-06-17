@@ -68,4 +68,5 @@ END_VAR
 					glbErrors[11].State,
 					glbErrors[12].State,
 					glbErrors[13].State);
+
 END_FUNCTION_BLOCK

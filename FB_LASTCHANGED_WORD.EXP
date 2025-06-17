@@ -32,4 +32,6 @@ END_VAR
 			out := value2;
 			prevValue2 := value2;
 		END_IF;
+
+
 END_FUNCTION_BLOCK

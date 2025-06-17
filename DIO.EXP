@@ -38,4 +38,5 @@ END_VAR
 
 	(* «апуск насоса увлажнени€ вент. установка 2 *)
 	A1_DO_RunPump := KD2.PUMP.xCMD_RUN;
+
 END_PROGRAM

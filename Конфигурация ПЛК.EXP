@@ -20,7 +20,7 @@ _COMMENT: ''
 
 _PARAMETER
 _PARAM 1: 0, 'PLC110-30_v2'
-_PARAM 2: 0, '10'
+_PARAM 2: 0, '50'
 _PARAM 3: 0, '1000'
 _END_PARAMETER
 
@@ -1319,7 +1319,7 @@ _IECOUT: %QB6.3
 _IECDIAG: %MB6.3
 _DOWNLOAD: 1
 _EXCLUDEFROMAUTOADR: 0
-_COMMENT: 'ID_3 ПЧВ U1 Вентилятор'
+_COMMENT: 'ID_3 ПЧВ U1 Вентилятор КД 2'
 
 _PARAMETER
 _PARAM 1: 0, 'Universal Modbus device'
@@ -3014,6 +3014,941 @@ _PARAM 1: 0, 'Enter name'
 _END_PARAMETER
 _END_CHANNEL
 _END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 2
+_IECIN: %IB7.2
+_IECOUT: %QB7.2
+_IECDIAG: %MB7.2
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID6 МК110-224.8Д.4Р КД 1(Чтение)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '6'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.2.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 0
+_IECIN: %IB7.2.0
+_IECOUT: %QB7.2.0
+_IECDIAG: %MB7.2.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Битовая маска значений входов 1 - 8'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '51'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.2.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 1
+_IECIN: %IB7.2.1
+_IECOUT: %QB7.2.1
+_IECDIAG: %MB7.2.1
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Битовая маска значений выходов 1 - 4'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '50'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.2.1.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 3
+_IECIN: %IB7.3
+_IECOUT: %QB7.3
+_IECDIAG: %MB7.3
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID6 МК110-224.8Д.4Р КД 1(Запись)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '6'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.3.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2004'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register output module'
+_NODE_ID: 0
+_IECIN: %IB7.3.0
+_IECOUT: %QB7.3.0
+_IECDIAG: %MB7.3.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Битовая маска значений выходов'
+
+_PARAMETER
+_PARAM 1: 0, 'Register'
+_PARAM 2: 0, '50'
+_PARAM 3: 0, 'Write multiple registers(0x10)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.3.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 4
+_IECIN: %IB7.4
+_IECOUT: %QB7.4
+_IECDIAG: %MB7.4
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID7 ПЧВ "Вентилятор" КД 1 (Запись)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '7'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.4.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2004'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register output module'
+_NODE_ID: 0
+_IECIN: %IB7.4.0
+_IECOUT: %QB7.4.0
+_IECDIAG: %MB7.4.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Задание частоты вращения'
+
+_PARAMETER
+_PARAM 1: 0, 'Register'
+_PARAM 2: 0, '8193'
+_PARAM 3: 0, 'Preset singl register (0x06)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.4.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 5
+_IECIN: %IB7.5
+_IECOUT: %QB7.5
+_IECDIAG: %MB7.5
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID7 ПЧВ "Вентилятор" КД 1 (Чтение)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '7'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.5.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 0
+_IECIN: %IB7.5.0
+_IECOUT: %QB7.5.0
+_IECDIAG: %MB7.5.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Заданная частота'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '01'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.5.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 1
+_IECIN: %IB7.5.1
+_IECOUT: %QB7.5.1
+_IECDIAG: %MB7.5.1
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Выходная частота'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '02'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.5.1.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 2
+_IECIN: %IB7.5.2
+_IECOUT: %QB7.5.2
+_IECDIAG: %MB7.5.2
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Выходной ток'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '03'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.5.2.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 3
+_IECIN: %IB7.5.3
+_IECOUT: %QB7.5.3
+_IECDIAG: %MB7.5.3
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Напряжение на шине'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '05'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.5.3.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 4
+_IECIN: %IB7.5.4
+_IECOUT: %QB7.5.4
+_IECDIAG: %MB7.5.4
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Температура ПЧ '
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '06'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.5.4.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 5
+_IECIN: %IB7.5.5
+_IECOUT: %QB7.5.5
+_IECDIAG: %MB7.5.5
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Состояние (статус)'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '22'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.5.5.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 6
+_IECIN: %IB7.6
+_IECOUT: %QB7.6
+_IECDIAG: %MB7.6
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID8 ПЧВ "Насос увл КД 1" (Запись)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '8'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.6.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2004'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register output module'
+_NODE_ID: 0
+_IECIN: %IB7.6.0
+_IECOUT: %QB7.6.0
+_IECDIAG: %MB7.6.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Задание частоты вращения'
+
+_PARAMETER
+_PARAM 1: 0, 'Register'
+_PARAM 2: 0, '4096'
+_PARAM 3: 0, 'Preset singl register (0x06)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.6.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 7
+_IECIN: %IB7.7
+_IECOUT: %QB7.7
+_IECDIAG: %MB7.7
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID8 ПЧВ "Насос увл КД 1" (Чтение)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '8'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.7.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 8
+_IECIN: %IB7.8
+_IECOUT: %QB7.8
+_IECDIAG: %MB7.8
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID9 ПЧВ "Дренажный насос" (Запись)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '9'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.8.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2004'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register output module'
+_NODE_ID: 0
+_IECIN: %IB7.8.0
+_IECOUT: %QB7.8.0
+_IECDIAG: %MB7.8.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Задание частоты вращения'
+
+_PARAMETER
+_PARAM 1: 0, 'Register'
+_PARAM 2: 0, '4096'
+_PARAM 3: 0, 'Preset singl register (0x06)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.8.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 9
+_IECIN: %IB7.9
+_IECOUT: %QB7.9
+_IECDIAG: %MB7.9
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID9 ПЧВ "Дренажный насос" (Чтение)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '9'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.9.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 10
+_IECIN: %IB7.10
+_IECOUT: %QB7.10
+_IECDIAG: %MB7.10
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID10 MK110-224.8ДН.4Р Дренаж (Чтение)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '10'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.10.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 0
+_IECIN: %IB7.10.0
+_IECOUT: %QB7.10.0
+_IECDIAG: %MB7.10.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Битовая маска значений выходов'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '50'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.10.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2003'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register input module'
+_NODE_ID: 1
+_IECIN: %IB7.10.1
+_IECOUT: %QB7.10.1
+_IECDIAG: %MB7.10.1
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Битовая маска значений входов'
+
+_PARAMETER
+_PARAM 1: 0, 'Register input module'
+_PARAM 2: 0, '51'
+_PARAM 3: 0, 'Read holding Registers  (0x03)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.10.1.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 11
+_IECIN: %IB7.11
+_IECOUT: %QB7.11
+_IECDIAG: %MB7.11
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID10 MK110-224.8ДН.4Р Дренаж (Запись)'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '10'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.11.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2004'
+_INDEX_IN_PARENT: '1'
+_MODULE_NAME: 'Register output module'
+_NODE_ID: 0
+_IECIN: %IB7.11.0
+_IECOUT: %QB7.11.0
+_IECDIAG: %MB7.11.0
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'Битовая маска значений выходов'
+
+_PARAMETER
+_PARAM 1: 0, 'Register'
+_PARAM 2: 0, '50'
+_PARAM 3: 0, 'Write multiple registers(0x10)'
+_PARAM 8: 0, 'No'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'WordOutput'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: ''
+_CHANNEL_MODE: 'Q'
+_IECADR: %QW7.11.0.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
+_END_MODULE
+_END_MODULE
+
+_MODULE: '3S'
+_SECTION_NAME: 'ID2000'
+_INDEX_IN_PARENT: '2'
+_MODULE_NAME: 'Universal Modbus device'
+_NODE_ID: 12
+_IECIN: %IB7.12
+_IECOUT: %QB7.12
+_IECDIAG: %MB7.12
+_DOWNLOAD: 1
+_EXCLUDEFROMAUTOADR: 0
+_COMMENT: 'ID11 ST1 (ПВТ_100) КД 1'
+
+_PARAMETER
+_PARAM 1: 0, 'Universal Modbus device'
+_PARAM 2: 0, '10:0:0:223'
+_PARAM 3: 0, '150'
+_PARAM 4: 0, '502'
+_PARAM 5: 0, 'Serial'
+_PARAM 6: 0, '11'
+_PARAM 7: 0, 'By poll time'
+_PARAM 8: 0, '100'
+_PARAM 9: 0, 'No'
+_PARAM 10: 0, '0'
+_PARAM 11: 0, 'Trace_mode'
+_END_PARAMETER
+
+_CHANNEL
+_SECTION_NAME: 'ComChannel'
+_INDEX_IN_PARENT: '1'
+_SYMBOLIC_NAME: ''
+_COMMENT: 'Command (0xff - Start)'
+_CHANNEL_MODE: 'Q'
+_IECADR: %QB7.12.0
+
+_PARAMETER
+_PARAM 1: 0, 'Enter name'
+_END_PARAMETER
+_END_CHANNEL
 _END_MODULE
 _END_MODULE
 
